@@ -55,3 +55,15 @@ create spec folder in root for any unit and integration tests
 Install Cypress with `npm install cypress --save-dev`
 
 Run to open wizard and setup directory `npx cypress open`
+
+Set baseUrl in cypress.config.js
+
+``` JSON
+module.exports = defineConfig({
+  e2e: {
+  baseUrl: "http://localhost:3000",
+    setupNodeEvents(on, config) {
+      // implement node event listeners here
+    },
+  },
+```
