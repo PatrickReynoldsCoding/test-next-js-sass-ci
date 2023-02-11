@@ -41,3 +41,17 @@ bring in class names using:
 ```
 
 ### Testing (Jest & Cypress)
+
+#### Jest
+
+Install Jest with `npm add jest`
+
+add `"test": "jest"` to scripts in package.json
+
+create spec folder in root for any unit and integration tests
+
+#### Cypress
+
+Install Cypress with `npm install cypress --save-dev`
+
+Run to open wizard and setup directory `npx cypress open`
