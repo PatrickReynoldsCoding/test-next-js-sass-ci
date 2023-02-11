@@ -38,6 +38,8 @@ jobs:
         npm test
 
     - name: Test with Cypress
-      run: |
-        npx cypress run
+      env:
+          CYPRESS_BASE_URL: https://staging.example.com
+        run: |
+          npx cypress run
 
