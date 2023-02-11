@@ -1,8 +1,8 @@
 
 describe("Test of test", () => {
   it("tests the test", () => {
-    const number = 10
+    const number = 11
 
-    expect(number).toEqual(10);
+    expect(number).toEqual(11);
   });
 });
