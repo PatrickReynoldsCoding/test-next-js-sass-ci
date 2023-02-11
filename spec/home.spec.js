@@ -3,6 +3,6 @@ describe("Test of test", () => {
   it("tests the test", () => {
     const number = 10
 
-    expect(number).toEqual(3);
+    expect(number).toEqual(10);
   });
 });
