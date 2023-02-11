@@ -40,6 +40,6 @@ jobs:
     - name: Test with Cypress
       env:
           CYPRESS_BASE_URL: https://staging.example.com
-        run: |
-          npx cypress run
+      run: |
+        npx cypress run
 
