@@ -53,6 +53,10 @@
   width: 1px;
 }
 
+.button {
+  background-color: green;
+}
+
 .default-background {
   background-color: green;
   height: 400px;
