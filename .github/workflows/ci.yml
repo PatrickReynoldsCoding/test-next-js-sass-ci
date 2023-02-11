@@ -39,7 +39,7 @@ jobs:
 
     - name: Test with Cypress
       env:
-          CYPRESS_BASE_URL: https://staging.example.com
+          CYPRESS_BASE_URL: https://localhost:3000
       run: |
         npx cypress run
 
