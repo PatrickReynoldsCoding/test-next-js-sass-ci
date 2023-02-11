@@ -37,9 +37,9 @@ jobs:
       run: |
         npm test
 
-    - name: Test with Cypress
-      env:
-          CYPRESS_BASE_URL: https://localhost:3000
-      run: |
-        npx cypress run
+    - name: Cypress run 
+      uses: cypress-io/github-action@v2
+      with:
+        build: npm run build
+        start: npm start
 
