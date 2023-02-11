@@ -1,0 +1,4 @@
+.*styles\..*
+{
+ <button className={styles.cat-button}>hello</button>
+}

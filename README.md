@@ -25,3 +25,8 @@ module.exports = nextConfig;
 compile sass using:
 
 `sass --watch sass/main.scss:styles/Home.module.css`
+
+bring in class names using:
+```
+  {`${styles['class-name']}`}
+```
