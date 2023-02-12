@@ -54,10 +54,4 @@ jobs:
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
       - name: Cypress run
-        uses: actions/checkout@v3
-        with:
-          working-directory: examples/v9/start
-          build: npm run build
-          start: npm start
-          wait-on: 'http://localhost:3000'
-          env: stage=LOCAL
+        uses: cypress-io/github-action@v5

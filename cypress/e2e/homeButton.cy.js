@@ -1,7 +1,7 @@
 describe("Home page", () => {
-  xit("User sees hello button", () => {
-    cy.visit("/");
+  it("User sees hello button", () => {
+    cy.visit("http://localhost:3000/");
 
-    cy.contains("hedllo").should("be.visible");
+    cy.contains("hello").should("be.visible");
   });
 });
