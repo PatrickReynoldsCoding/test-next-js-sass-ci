@@ -1,7 +1,7 @@
 # Next.js project with Sass and CI
-[How I built this enviroment](#how-i-built-this-enviroment) |
+[How I built this environment](#how-i-built-this-environment) |
 
-## How I built this enviroment
+## How I built this environment
 
 ### Next.js
 
