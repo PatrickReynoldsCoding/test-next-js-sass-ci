@@ -1,6 +1,9 @@
 # Next.js project with Sass and CI
+[How I built this enviroment](#how-i-built-this-enviroment) |
 
-## How I built
+## How I built this enviroment
+
+### Next.js
 
 `npx create-next-app .`
 
@@ -8,7 +11,7 @@
 
 `npm install --save-dev sass`
 
-add sass options to next.config.js
+Add sass options to next.config.js
 
 ```javascript
 /** @type {import('next').NextConfig} */
@@ -28,15 +31,28 @@ module.exports = nextConfig;
 
 [Download from here for easy setup](https://github.com/PatrickReynoldsCoding/sass-boilerplate-with-emotion-version)
 
-compile sass using:
+Compile sass using:
 
 `sass --watch sass/main.scss:styles/Home.module.css`
 
-bring in class names using:
+#### Preserve CSS hyphenated class names
+
+Next.js uses Emotion-Library and imports styles as a JS object. This will throw an error with any css classnames that are hyphanated.
+
+E.g:
 
 ```javascript
 
-  {`${styles['class-name']}`}
+  <div className={styles.class-name} >
+
+```
+
+
+To prevent editing all your hyphenated class names, you can call them as an array element.
+
+```javascript
+
+  <div className={styles['cat-button']} >
 
 ```
 
@@ -46,9 +62,9 @@ bring in class names using:
 
 Install Jest with `npm add jest`
 
-add `"test": "jest"` to scripts in package.json
+Add `"test": "jest"` to scripts in package.json
 
-create spec folder in root for any unit and integration tests
+Create spec folder in root for any unit and integration tests
 
 #### Cypress
 
@@ -56,14 +72,59 @@ Install Cypress with `npm install cypress --save-dev`
 
 Run to open wizard and setup directory `npx cypress open`
 
-Set baseUrl in cypress.config.js
 
-``` JSON
-module.exports = defineConfig({
-  e2e: {
-  baseUrl: "http://localhost:3000",
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
-  },
+#### CI
+
+Create .github/workflow/ci.yml
+
+This boilerplate code I've written will enable run Jest and Cypress tests upon each merge:
+
 ```
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+env:
+  NODE_VERSION: 14
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18]
+
+    name: Node.js ${{ matrix.node-version }}
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+
+    - name: Install dependencies
+      run: |
+        npm ci
+
+    - name: Test with Jest
+      run: |
+        npm test
+
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Cypress run
+      uses: cypress-io/github-action@v5
+      with:
+        start: npm run dev
+        wait-on: 'http://localhost:3000'
+        ```
