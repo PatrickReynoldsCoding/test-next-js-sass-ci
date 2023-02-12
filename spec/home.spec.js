@@ -5,4 +5,9 @@ describe("Test of test", () => {
 
     expect(number).toEqual(10);
   });
+  it("tests fails the test", () => {
+    const number = 10
+
+    expect(number).toEqual(9);
+  });
 });
