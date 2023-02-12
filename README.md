@@ -7,9 +7,12 @@
 
 `npx create-next-app .`
 
-### Styling (Sass)
+### install dependacies
 
-`npm install --save-dev sass`
+`npm i sass jest cypress`
+
+
+### Styling (Sass)
 
 Add sass options to next.config.js
 
@@ -60,15 +63,11 @@ To prevent editing all your hyphenated class names, you can call them as an arra
 
 #### Jest
 
-Install Jest with `npm add jest`
-
 Add `"test": "jest"` to scripts in package.json
 
 Create spec folder in root for any unit and integration tests
 
 #### Cypress
-
-Install Cypress with `npm install cypress --save-dev`
 
 Run to open wizard and setup directory `npx cypress open`
 
