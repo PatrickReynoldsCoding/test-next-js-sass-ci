@@ -7,7 +7,7 @@
 
 `npx create-next-app .`
 
-### install dependacies
+### install dependencies
 
 `npm i sass jest cypress`
 
