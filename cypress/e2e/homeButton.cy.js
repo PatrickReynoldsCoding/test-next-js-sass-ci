@@ -4,4 +4,9 @@ describe("Home page", () => {
 
     cy.contains("hello").should("be.visible");
   });
+  it("User sees hello button", () => {
+    cy.visit("http://localhost:3000/");
+
+    cy.contains("hellsdo").should("be.visible");
+  });
 });
